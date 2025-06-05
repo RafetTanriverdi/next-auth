@@ -1,18 +1,11 @@
 import React from "react";
-import Link from "next/link";
+import SignOutButton from "@rt/components/Buttons/SignOutButton";
 
-export default function DahsboardPage() {
+export default function DashboardPage() {
   return (
-    <div>
-      DahsboardPage
-      <button>
-        <Link
-          href="/api/auth/signout"
-          className="text-blue-500 hover:underline"
-        >
-          Sign Out
-        </Link>
-      </button>
+    <div className="flex">
+      DashboardPage
+      <SignOutButton text="SignOut" />
     </div>
   );
 }
