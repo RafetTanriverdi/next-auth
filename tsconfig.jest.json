@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@rt/*": ["src/*"]
+    },
+    "jsx": "react-jsx",
+    "module": "commonjs",
+    "target": "ES6",
+    "esModuleInterop": true,
+    "allowJs": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": false,
+    "noEmit": true,
+    "types": ["jest", "node"]
+  },
+  "include": ["src"]
+}
