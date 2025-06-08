@@ -17,9 +17,10 @@ declare module "next-auth" {
       email?: string | null;
       image?: string | null;
       sub?: string;
+      roles?: string[];
+
       accessToken?: string;
     };
-    roles?: string[];
   }
 
   interface User {
