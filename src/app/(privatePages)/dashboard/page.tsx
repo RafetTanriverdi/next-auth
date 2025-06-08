@@ -1,11 +1,16 @@
-import React from "react";
-import SignOutButton from "@rt/components/Buttons/SignOutButton";
+"use client";
+
+import { getUsersRoles } from "@rt/actions/getUserRoles";
+import React, { useEffect } from "react";
 
 export default function DashboardPage() {
-  return (
-    <div className="flex">
-      DashboardPage
-      <SignOutButton text="SignOut" />
-    </div>
-  );
+  useEffect(() => {
+    const fetchRoles = async () => {
+      const roles = await getUsersRoles();
+      console.log("roles", roles);
+    };
+    fetchRoles();
+  }, []);
+
+  return <div className="flex">DashboardPage</div>;
 }

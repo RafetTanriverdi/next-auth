@@ -1,38 +1,7 @@
-import NextAuth from 'next-auth'
-import Auth0Provider from 'next-auth/providers/auth0'
+// app/api/auth/[...nextauth]/route.ts
+import { authOptions } from "@rt/lib/authOptions";
+import NextAuth from "next-auth";
 
-const handler = NextAuth({
-  providers: [
-    Auth0Provider({
-      clientId: process.env.AUTH0_CLIENT_ID!,
-      clientSecret: process.env.AUTH0_CLIENT_SECRET!,
-      issuer: process.env.AUTH0_ISSUER!,
-    }),
-  ],
-  session: {
-    strategy: 'jwt',
-  },
-  callbacks: {
-    async jwt({ token, account }) {
-      if (account) {
-        token.accessToken = account.access_token
-        
-      }
-      return token
-    },
-    async session({ session, token }) {
-    
-     return {
-    ...session,
-    user: {
-      
-      ...session.user,
-      accessToken: token.accessToken,
-      
-    },
-  }
-    },
-  },
-})
+const handler = NextAuth(authOptions);
 
-export { handler as GET, handler as POST }
+export { handler as GET, handler as POST };
