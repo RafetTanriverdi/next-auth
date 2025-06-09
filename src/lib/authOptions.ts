@@ -34,8 +34,11 @@ export const authOptions: NextAuthOptions = {
           );
           token.roles = roles.map((role: { name: string }) => role.name);
         } catch (error) {
-          console.error("Error fetching roles:", error);
           token.roles = [];
+          throw new Error(
+            "Failed to fetch user roles from Auth0",
+            error as Error
+          );
         }
       }
 
