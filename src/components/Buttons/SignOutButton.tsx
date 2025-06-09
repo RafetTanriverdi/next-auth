@@ -18,7 +18,7 @@ export default function SignOutButton({ text }: { text: string }) {
         `https://${process.env.NEXT_PUBLIC_AUTH0_DOMAIN}/v2/logout?` +
           new URLSearchParams({
             client_id: `${process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID}`,
-            returnTo: "http://localhost:3000/",
+            returnTo: `${process.env.NEXTAUTH_URL}`,
           })
       );
     },
