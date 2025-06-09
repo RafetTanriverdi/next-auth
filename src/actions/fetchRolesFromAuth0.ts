@@ -18,6 +18,5 @@ export async function fetchRolesFromAuth0(
   }
 
   const data = await response.json();
-  console.log("Response from Auth0 roles API:", data, "userSub:", userSub);
   return data;
 }
